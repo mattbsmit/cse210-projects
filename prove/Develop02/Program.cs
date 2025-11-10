@@ -5,23 +5,25 @@ class Program
     static void Main(string[] args)
     {
         Menu journalMenu = new Menu();
+        Journal journal= new Journal();
 
         int userSelection;
         bool done = false;
-        Entry newEntry = new Entry();
 
-        do 
+        
+        do
         {
             userSelection = journalMenu.ProcessMenu();
 
-            switch(userSelection)
+            switch (userSelection)
             {
                 case 1:
+                    Entry newEntry = new Entry();
                     newEntry.CreateEntry();
-                    newEntry.Display();
+                    journal.AddEntry(newEntry);
                     break;
                 case 2:
-                    newEntry.Display();
+                    journal.Display();
                     break;
                 case 3:
                     break;
