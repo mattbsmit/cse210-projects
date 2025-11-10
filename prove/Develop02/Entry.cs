@@ -27,7 +27,7 @@ class Entry
         _date = DateTime.Now.ToString("MM/d/yyyy");
 
         Random randomIndex = new Random();
-        String[] promptList = {"How is your day? ", "What is the most interesting thing you did today? "};
+        String[] promptList = {"How is your day? ", "What is the most interesting thing you did today? ", "What are your plans for tomorrow? ", "What did you have for lunch today? ", "What was your least favorite part of the day? "};
         List<string> promptIndex = new List<String>(promptList);
 
         int index = randomIndex.Next(0, 4);
