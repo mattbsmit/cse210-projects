@@ -3,6 +3,7 @@
 // Attributes - Date:String, Prompt:String, UserEntry:string 
 
 using System;
+using System.Security.Cryptography;
 
 class Entry
 {
@@ -23,9 +24,17 @@ class Entry
 
     public void CreateEntry()
     {
-        _date = "11/10/25";
-        _prompt = "How was your day?";
-        _userEntry = "Good";
+        _date = DateTime.Now.ToString("MM/d/yyyy");
+
+        Random randomIndex = new Random();
+        String[] promptList = {"How is your day? ", "What is the most interesting thing you did today? "};
+        List<string> promptIndex = new List<String>(promptList);
+
+        int index = randomIndex.Next(0, 4);
+        _prompt = promptList[index];
+
+        Console.Write($"{_prompt}");
+        _userEntry = Console.ReadLine();
     }
 
 }
