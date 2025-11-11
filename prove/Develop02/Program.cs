@@ -30,6 +30,7 @@ class Program
                     journal.SaveFile(entry);
                     break;
                 case 4:
+                    // string fileName = "journal.txt" add "fileName" to journal.ReadFile(fileName);
                     journal.ReadFile();
                     break;
                 case 5:
