@@ -17,10 +17,13 @@ class Entry
         Console.WriteLine($"{_date}, {_prompt}, {_userEntry}");
     }
 
-    public void SetInfo(string date, string prompt, string userEntry)
+    /*public string SetInfo(string _date, string _prompt, string userEntry)
     {
-        _date = date;
-    }
+        _date = _date;
+        _prompt = _prompt;
+        _userEntry = userEntry;
+        return (_date, _prompt, _userEntry);
+    }*/
 
     public void CreateEntry()
     {
