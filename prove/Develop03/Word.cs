@@ -42,7 +42,6 @@ class Word
             hiddenWord = new string('_', _word.Length);
         }
 
-        Console.WriteLine(hiddenWord);
         return hiddenWord;
     }
 

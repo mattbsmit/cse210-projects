@@ -15,6 +15,7 @@ class Program
 
         do
         {
+            Console.Clear();
             Console.WriteLine("Press enter to hid words or type 'q' to quit");
             userSelection = Console.ReadLine();
             switch (userSelection)
