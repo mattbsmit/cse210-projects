@@ -10,6 +10,9 @@ class Program
         Console.WriteLine("Hello Develop03 World!");
         Word myWord = new Word("Uncle");
         myWord.DisplayWord();
+        myWord.HideWord();
+        myWord.GetWord();
+
         do
         {
             Console.WriteLine("Press enter to hid words or type 'q' to quit");
@@ -20,7 +23,6 @@ class Program
                     done = true;
                     break;
                 case "b":
-                    done = true;
                     break;
             }
         } while (!done);

@@ -11,6 +11,7 @@ and create a constructor with that. From there Word.cs will also handle making t
 keeping the reference untouched
 */
 
+
 class Word
 {
     private string _word;
@@ -20,6 +21,29 @@ class Word
     {
         _word = word;
         _isHidden = false;
+    }
+
+    public bool IsHidden()
+    {
+        return _isHidden;
+    }
+    
+    public void HideWord()
+    {
+        _isHidden = true;
+    }
+
+    public string GetWord()
+    {
+        string hiddenWord = _word;
+
+        if (_isHidden)
+        {
+            hiddenWord = new string('_', _word.Length);
+        }
+
+        Console.WriteLine(hiddenWord);
+        return hiddenWord;
     }
 
     public void DisplayWord()
