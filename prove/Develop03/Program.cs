@@ -1,4 +1,5 @@
 using System;
+using System.Security.Cryptography.X509Certificates;
 
 class Program
 {
@@ -9,14 +10,29 @@ class Program
 
         Word myWord = new Word("Uncle");
         Reference reference = new Reference();
+        Scripture scripture = new Scripture();
 
+        Console.Clear();
         Console.WriteLine("What scripture would you like to memorize?");
-        // print reference list here >>>> Console.WriteLine($"");
+        reference.DisplayList();
+
+        Console.Write("Enter the number of the scripture you like to memorize: ");
+        scripture.userScripture = int.Parse(Console.ReadLine());
+
+        switch (scripture.userScripture)
+        {
+            case 1:
+                Console.Clear();
+                reference.ScriptureReference("John", 3, 16);
+                break;
+            case 2:
+                Console.Clear();
+                reference.ScriptureReference("Proverbs", 3, 5, 6);
+                break;
+        } while (!done)
 
         do
         {
-            Console.Clear();
-            myWord.BuildVerse(reference.ScriptureReference("John", 3, 16), "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.");
             Console.WriteLine("Press enter to hid words or type 'q' to quit");
             userSelection = Console.ReadLine();
             switch (userSelection)
