@@ -17,6 +17,10 @@ class Word
     private string _word;
     private bool _isHidden;
 
+    public void BuildVerse(string _reference, string _verse)
+    {
+        Console.WriteLine($"{_reference} {_verse}");
+    }
     public Word(string word)
     {
         _word = word;

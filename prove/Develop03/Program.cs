@@ -7,15 +7,16 @@ class Program
         string userSelection;
         bool done = false;
 
-        Console.WriteLine("Hello Develop03 World!");
         Word myWord = new Word("Uncle");
-        myWord.DisplayWord();
-        myWord.HideWord();
-        myWord.GetWord();
+        Reference reference = new Reference();
+
+        Console.WriteLine("What scripture would you like to memorize?");
+        // print reference list here >>>> Console.WriteLine($"");
 
         do
         {
             Console.Clear();
+            myWord.BuildVerse(reference.ScriptureReference("John", 3, 16), "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.");
             Console.WriteLine("Press enter to hid words or type 'q' to quit");
             userSelection = Console.ReadLine();
             switch (userSelection)

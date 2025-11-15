@@ -3,14 +3,19 @@
 // Attributes - string list scriptures
 // Constructor - None
 
-using Microsoft.VisualBasic;
-
 class Scripture
 {
-    List<string> _scripture = new List<string>
+    private string scriptureText;
+
+    List<string> scriptureList = new List<string>
     {
         "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
         "",
         "",
     };
+
+    public Scripture(){
+        string scriptureText = scriptureList[0];
+        List<string> verseWords = scriptureText.Split(" ").ToList();
+    }
 }
