@@ -6,8 +6,13 @@ class Program
     static void Main(string[] args)
     {
         Menu activityMenu = new Menu();
+        Activity activity= new Activity();
+        Breathing breathingActivity = new Breathing();
+        Reflection reflectionActivity = new Reflection();
+        Listening listeningActivity = new Listening();
 
-        int userSelection;
+
+        int userSelection = 0;
         bool done  = false;
 
         do
@@ -17,10 +22,16 @@ class Program
             switch (userSelection)
             {
                 case 1:
+                    breathingActivity.ShowActivity();
+                    breathingActivity.GetTime();
                     break;
                 case 2:
+                    reflectionActivity.ShowActivity();
+                    reflectionActivity.GetTime();
                     break;
                 case 3:
+                    listeningActivity.ShowActivity();
+                    listeningActivity.GetTime();
                     break;
                 case 4:
                     done = true;

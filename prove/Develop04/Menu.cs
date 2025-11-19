@@ -13,6 +13,7 @@ class Menu
     public int DisplayMenu()
     {
         _userInput = 0;
+        Console.Clear();
         do
         {
             foreach (string menuItem in _MenuString)
