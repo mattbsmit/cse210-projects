@@ -32,8 +32,21 @@ class Activity
         return _timeLength;
     }
 
-    private string Animation()
+    public void LoadingAnimation()
     {
-        return "";
+        DateTime _startTime = DateTime.Now;
+        DateTime _loadTime = _startTime.AddSeconds(2);
+        Console.Write("Loading...  ");
+
+        while (_startTime < _loadTime)
+        {
+            Console.Write("\b/");
+            Thread.Sleep(250);
+            Console.Write("\b-");
+            Thread.Sleep(250);
+            Console.Write("\b\\");
+            _startTime = DateTime.Now;
+
+        }
     }
 }
