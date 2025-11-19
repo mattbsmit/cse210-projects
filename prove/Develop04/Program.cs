@@ -25,6 +25,7 @@ class Program
                     breathingActivity.ShowActivity();
                     breathingActivity.GetTime();
                     breathingActivity.LoadingAnimation();
+                    breathingActivity.breathInOut();
                     break;
                 case 2:
                     reflectionActivity.ShowActivity();

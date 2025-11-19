@@ -4,7 +4,7 @@ class Activity
 {
     private string _welcome;
     private string _summary;
-    private int _timeLength;
+    protected int _timeLength;
 
     public Activity()
     {
