@@ -11,6 +11,10 @@ class Entry
     public string _prompt;
     public string _userEntry;
 
+    private int index;
+
+    Random random = new Random();
+
 
     public void Display()
     {

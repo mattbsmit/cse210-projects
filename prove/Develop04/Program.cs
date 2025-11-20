@@ -31,7 +31,8 @@ class Program
                     reflectionActivity.ShowActivity();
                     reflectionActivity.GetTime();
                     reflectionActivity.LoadingAnimation();
-
+                    reflectionActivity.DisplayPrompt();
+                    reflectionActivity.DisplayReflectPrompt();
                     reflectionActivity.ShowSummary();
                     break;
                 case 3:
