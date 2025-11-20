@@ -38,9 +38,9 @@ class Program
                 case 3:
                     listeningActivity.ShowActivity();
                     listeningActivity.GetTime();
-                    reflectionActivity.LoadingAnimation();
-
-                    reflectionActivity.ShowSummary();
+                    listeningActivity.LoadingAnimation();
+                    listeningActivity.DisplayPrompt();
+                    listeningActivity.ShowSummary();
                     break;
                 case 4:
                     done = true;
