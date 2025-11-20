@@ -4,16 +4,18 @@ class Activity
 {
     private string _welcome;
     private string _summary;
+    private string _activity;
     protected int _timeLength;
 
     public Activity()
     {
         
     }
-    public Activity(string welcome, string summary) //Removed timeLength since time should be passed down not up if time should be passed at all
+    public Activity(string welcome, string summary, string activity) //Removed timeLength since time should be passed down not up if time should be passed at all
     {
         _welcome = welcome;
         _summary = summary;
+        _activity = activity;
     }
 
     public void ShowActivity()
@@ -48,5 +50,13 @@ class Activity
             _startTime = DateTime.Now;
 
         }
+    }
+
+    public void ShowSummary()
+    {
+        Console.Clear();
+
+        Console.WriteLine($"Great Job! You completed {_timeLength} seconds of the {_activity}");
+        LoadingAnimation();
     }
 }

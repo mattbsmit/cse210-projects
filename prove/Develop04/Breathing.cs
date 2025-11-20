@@ -2,7 +2,7 @@ class Breathing : Activity
 {
     private string stringLength;
     public Breathing()
-    : base("Welcome to the breathing activity!\n", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.\n")
+    : base("Welcome to the breathing activity!\n", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.\n", "Breathing Activity")
     {
 
     }
@@ -46,7 +46,7 @@ class Breathing : Activity
         DateTime timeSeconds = DateTime.Now;
         DateTime activityLength = timeSeconds.AddSeconds(_timeLength);
 
-        Console.WriteLine(_timeLength);
+        LoadingAnimation();
 
         while (timeSeconds < activityLength)
         {
