@@ -1,4 +1,4 @@
-class Eternal : CreateGoal
+class Eternal
 {
     
 }

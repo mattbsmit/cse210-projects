@@ -7,15 +7,15 @@ class Program
         int userSelection = 0;
         bool done = false;
         Menu menu = new Menu();
+        CreateGoal createGoal = new CreateGoal("HELLO", "THERE");
 
 
         menu.DisplayMenu();
         menu.DisplayGoalMenu();
 
 
-
         do
-        {
+        {         
             userSelection = menu.DisplayMenu();
 
             switch (userSelection)

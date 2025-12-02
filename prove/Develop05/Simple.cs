@@ -1,4 +1,4 @@
-class Simple : CreateGoal
+class Simple
 {
     
 }

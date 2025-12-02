@@ -1,4 +1,4 @@
-class CheckList : CreateGoal
+class CheckList
 {
     
 }
