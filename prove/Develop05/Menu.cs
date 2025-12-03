@@ -49,7 +49,7 @@ class Menu
             }
             Console.Write("Select a choice from above: ");
             userInput = int.Parse(Console.ReadLine());           
-        } while (userInput < 1 || userInput > 3);
+        } while (userInput < 1 || userInput > 4);
 
         return userInput;
     }
