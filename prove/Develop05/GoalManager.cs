@@ -63,6 +63,8 @@ class GoalManager
     {
         using (StreamWriter outputFile = new StreamWriter(_fileName))
         {
+            outputFile.WriteLine(_totalScore);
+            
             foreach (CreateGoal goal in _goals)
             {
                 outputFile.WriteLine(goal.CompString());
@@ -74,7 +76,9 @@ class GoalManager
     {
         string[] loadedGoals = System.IO.File.ReadAllLines(_fileName);
 
-        foreach (string line in loadedGoals)
+        _totalScore = int.Parse(loadedGoals[0]);
+
+        foreach (string line in loadedGoals.Skip(1))
         {
             string[] parts = line.Split("|");
 
