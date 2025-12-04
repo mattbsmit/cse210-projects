@@ -8,7 +8,7 @@ class Program
         bool done = false;
 
 
-        List<CreateGoal> goals = new List<CreateGoal>();
+        List<CreateGoal> _goals = new List<CreateGoal>();
 
 
         Menu menu = new Menu();
@@ -36,9 +36,7 @@ class Program
                             case 1:
                                 CreateGoal goal = new Simple();
                                 goal.GoalInfo();
-                                goals.Add(goal);
-                                GoalManager saveGoal = new GoalManager("Simple", goal._name, goal._description, goal._points, goal._status);
-                                saveGoal.SaveString();
+                                _goals.Add(goal);
                                 innerDone = true;
                                 break;
                             case 2:
@@ -57,9 +55,9 @@ class Program
                     Console.Clear();
                     Console.WriteLine("Current Goals: ");
 
-                    foreach (var g in goals)
+                    foreach (var g in _goals)
                     {
-                        Console.WriteLine(g.GoalString());
+                        Console.WriteLine(g.HumanString());
                     }
 
                     Console.WriteLine("Press ENTER to continue:");
@@ -69,7 +67,7 @@ class Program
                     Console.Clear();
                     Console.Write("What is the filename: ");
                     string userInput = Console.ReadLine();
-                    manager.SaveGoal(userInput);
+                    //manager.SaveGoal(userInput);
                     break;
                 case 4:
                     break;
@@ -78,9 +76,9 @@ class Program
 
                     Console.Clear();
 
-                    foreach (var g in goals)
+                    foreach (var g in _goals)
                     {
-                        Console.WriteLine($"    {i}. {g._name}");
+                        //Console.WriteLine($"    {i}. {g._name}");
 
                         i += 1;
                     }
@@ -88,7 +86,7 @@ class Program
                     Console.Write("What goal did you accomplish:");
                     int index = int.Parse(Console.ReadLine()) - 1;
 
-                    goals[index].RecordEvent();
+                    _goals[index].RecordEvent();
                     break;
                 case 6:
                     done = true;

@@ -1,8 +1,8 @@
 class Simple : CreateGoal
 {
     public Simple()
-    : base()
+    : base("Simple")
     {
-        _goalType = ("Simple");
+    
     }
 }

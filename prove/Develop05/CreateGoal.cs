@@ -1,21 +1,17 @@
 class CreateGoal
 {
-    public string _name;
-    public string _description;
-    public int _points;
-    public bool _status;
-    public string _goalType;
+    protected string _goalType;
+    private string _name;
+    private string _description;
+    private int _points;
+    private bool _status;
 
     private string userInput;
 
 
-    public CreateGoal()
+    public CreateGoal(string goalType)
     {
-        _name = "";
-        _description = "";
-        _points = 0;
-        _status = false;
-        _goalType = "";
+        _goalType = goalType;
     }
 
     public virtual void GoalInfo()
@@ -38,8 +34,13 @@ class CreateGoal
         _status = true;
     }
 
-    public virtual string GoalString()
+    public virtual string HumanString()
     {
-        return ($"Type: {_goalType} Name: {_name} Description: {_description} Points: {_points} Status: {_status}");
+        return ($"[ ] {_name} - {_description} - {_points}");
+    }
+
+    public virtual string CompString()
+    {
+        return ($"{_goalType}|{_name}|{_description}|{_points}|{_status}");
     }
 }
