@@ -8,14 +8,8 @@ class Program
         bool done = false;
 
 
-        List<CreateGoal> _goals = new List<CreateGoal>();
-
-
         Menu menu = new Menu();
         GoalManager manager = new GoalManager();
-
-
-        menu.DisplayMenu();
 
 
         do
@@ -36,7 +30,7 @@ class Program
                             case 1:
                                 CreateGoal goal = new Simple();
                                 goal.GoalInfo();
-                                _goals.Add(goal);
+                                manager.AddGoal(goal);
                                 innerDone = true;
                                 break;
                             case 2:
@@ -52,22 +46,11 @@ class Program
                     done = false;
                     break;
                 case 2:
-                    Console.Clear();
-                    Console.WriteLine("Current Goals: ");
-
-                    foreach (var g in _goals)
-                    {
-                        Console.WriteLine(g.HumanString());
-                    }
-
-                    Console.WriteLine("Press ENTER to continue:");
-                    Console.ReadLine();
+                    manager.DisplayGoals();
                     break;
                 case 3:
-                    Console.Clear();
-                    Console.Write("What is the filename: ");
-                    string userInput = Console.ReadLine();
-                    //manager.SaveGoal(userInput);
+                    manager.GetFile();
+                    manager.SaveGoal();
                     break;
                 case 4:
                     break;
@@ -76,7 +59,7 @@ class Program
 
                     Console.Clear();
 
-                    foreach (var g in _goals)
+                    //foreach (var g in _goals)
                     {
                         //Console.WriteLine($"    {i}. {g._name}");
 
@@ -86,7 +69,7 @@ class Program
                     Console.Write("What goal did you accomplish:");
                     int index = int.Parse(Console.ReadLine()) - 1;
 
-                    _goals[index].RecordEvent();
+                    //_goals[index].RecordEvent();
                     break;
                 case 6:
                     done = true;

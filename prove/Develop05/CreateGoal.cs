@@ -29,9 +29,10 @@ class CreateGoal
         _status = false;
     }
 
-    public virtual void RecordEvent()
+    public virtual int RecordEvent()
     {
         _status = true;
+        return _points;
     }
 
     public virtual string HumanString()
