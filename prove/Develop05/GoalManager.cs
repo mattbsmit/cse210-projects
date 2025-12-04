@@ -1,5 +1,6 @@
 using System.IO;
 using System.Net.Http.Headers;
+using System.Reflection.Metadata;
 
 
 class GoalManager
@@ -66,6 +67,25 @@ class GoalManager
             {
                 outputFile.WriteLine(goal.CompString());
             }
+        }
+    }
+
+    public void LoadGoal()
+    {
+        string[] loadedGoals = System.IO.File.ReadAllLines(_fileName);
+
+        foreach (string line in loadedGoals)
+        {
+            string[] parts = line.Split("|");
+
+            string _goalType = parts[0];
+            string _name = parts[1];
+            string _description = parts[2];
+            int _points = int.Parse(parts[3]);
+            bool _status = bool.Parse(parts[4]);
+
+            CreateGoal goal = new CreateGoal(_goalType, _name, _description, _points, _status);
+            AddGoal(goal);
         }
     }
 }

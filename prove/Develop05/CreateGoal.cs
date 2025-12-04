@@ -9,9 +9,23 @@ class CreateGoal
     private string userInput;
 
 
+    public CreateGoal()
+    {
+        
+    }
+    
     public CreateGoal(string goalType)
     {
         _goalType = goalType;
+    }
+
+    public CreateGoal(string goalType, string name, string description, int points, bool status)
+    {
+        _goalType = goalType;
+        _name = name;
+        _description = description;
+        _points = points;
+        _status = status;
     }
 
     public virtual void GoalInfo()

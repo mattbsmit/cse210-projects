@@ -53,6 +53,8 @@ class Program
                     manager.SaveGoal();
                     break;
                 case 4:
+                    manager.GetFile();
+                    manager.LoadGoal();
                     break;
                 case 5:
                     manager.RecordEvent();
