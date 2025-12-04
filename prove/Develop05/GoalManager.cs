@@ -7,6 +7,7 @@ class GoalManager
     private string _fileName;
     private List<CreateGoal> _goals = new List<CreateGoal>(); 
     private int _totalScore;
+    private int _index = 1;
 
 
 
@@ -17,10 +18,17 @@ class GoalManager
 
     public void RecordEvent()
     {
+        Console.WriteLine("Here are your current goals:");
+
         foreach (CreateGoal goal in _goals)
         {
-            _totalScore += goal.RecordEvent();
+            Console.WriteLine($"    {_index}: {goal.HumanString()}");
+            _index += 1;
         }
+        Console.Write("Enter the number of the goal you finished: ");
+
+        _index = int.Parse(Console.ReadLine()) - 1;
+        _totalScore += _goals[_index].RecordEvent();
     }
 
     public void AddGoal(CreateGoal goal)
@@ -50,13 +58,13 @@ class GoalManager
         _fileName = Console.ReadLine();
     }
 
-    public virtual void SaveGoal()
+    public void SaveGoal()
     {
         using (StreamWriter outputFile = new StreamWriter(_fileName))
         {
             foreach (CreateGoal goal in _goals)
             {
-                outputFile.WriteLine(goal);
+                outputFile.WriteLine(goal.CompString());
             }
         }
     }
