@@ -12,7 +12,7 @@ class Program
 
 
         Menu menu = new Menu();
-        
+        GoalManager manager = new GoalManager();
 
 
         menu.DisplayMenu();
@@ -37,6 +37,8 @@ class Program
                                 CreateGoal goal = new Simple();
                                 goal.GoalInfo();
                                 goals.Add(goal);
+                                GoalManager saveGoal = new GoalManager("Simple", goal._name, goal._description, goal._points, goal._status);
+                                saveGoal.SaveString();
                                 innerDone = true;
                                 break;
                             case 2:
@@ -64,10 +66,29 @@ class Program
                     Console.ReadLine();
                     break;
                 case 3:
+                    Console.Clear();
+                    Console.Write("What is the filename: ");
+                    string userInput = Console.ReadLine();
+                    manager.SaveGoal(userInput);
                     break;
                 case 4:
                     break;
                 case 5:
+                    int i = 1;
+
+                    Console.Clear();
+
+                    foreach (var g in goals)
+                    {
+                        Console.WriteLine($"    {i}. {g._name}");
+
+                        i += 1;
+                    }
+
+                    Console.Write("What goal did you accomplish:");
+                    int index = int.Parse(Console.ReadLine()) - 1;
+
+                    goals[index].RecordEvent();
                     break;
                 case 6:
                     done = true;

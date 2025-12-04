@@ -1,9 +1,9 @@
 class CreateGoal
 {
-    private string _name;
-    private string _description;
-    private int _points;
-    private bool _status;
+    public string _name;
+    public string _description;
+    public int _points;
+    public bool _status;
     public string _goalType;
 
     private string userInput;
@@ -20,17 +20,22 @@ class CreateGoal
 
     public virtual void GoalInfo()
     {
-        Console.WriteLine("Enter goal name:");
+        Console.Write("Enter goal name: ");
         _name = Console.ReadLine();
 
-        Console.WriteLine("Enter the goal description:");
+        Console.Write("Enter the goal description: ");
         _description = Console.ReadLine();
 
-        Console.WriteLine("Enter how many points this goal is worth:");
+        Console.Write("Enter how many points this goal is worth: ");
         userInput = Console.ReadLine();
         _points = int.Parse(userInput);
 
         _status = false;
+    }
+
+    public virtual void RecordEvent()
+    {
+        _status = true;
     }
 
     public virtual string GoalString()
