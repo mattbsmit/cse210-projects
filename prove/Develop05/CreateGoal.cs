@@ -37,7 +37,10 @@ class CreateGoal
 
     public virtual string HumanString()
     {
-        return ($"[ ] {_name} - {_description} - {_points}");
+        if (_status)
+            return ($"[x] {_name} - {_description} - {_points}");
+        else
+            return ($"[ ] {_name} - {_description} - {_points}");
     }
 
     public virtual string CompString()

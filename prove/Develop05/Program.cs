@@ -55,21 +55,7 @@ class Program
                 case 4:
                     break;
                 case 5:
-                    int i = 1;
-
-                    Console.Clear();
-
-                    //foreach (var g in _goals)
-                    {
-                        //Console.WriteLine($"    {i}. {g._name}");
-
-                        i += 1;
-                    }
-
-                    Console.Write("What goal did you accomplish:");
-                    int index = int.Parse(Console.ReadLine()) - 1;
-
-                    //_goals[index].RecordEvent();
+                    manager.RecordEvent();
                     break;
                 case 6:
                     done = true;
