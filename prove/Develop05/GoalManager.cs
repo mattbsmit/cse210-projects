@@ -84,14 +84,26 @@ class GoalManager
             string[] parts = line.Split("|");
 
             string _goalType = parts[0];
-            //if (_goalType != "Checklist")
             string _name = parts[1];
             string _description = parts[2];
             int _points = int.Parse(parts[3]);
             bool _status = bool.Parse(parts[4]);
 
-            CreateGoal goal = new CreateGoal(_goalType, _name, _description, _points, _status);
-            AddGoal(goal);
+            if (_goalType == "Checklist")
+            {
+                int _bonusPoints = int.Parse(parts[5]);
+                int _completetions = int.Parse(parts[6]);
+                int _instances = int.Parse(parts[7]);
+
+                CreateGoal goal = new CreateGoal(_goalType, _name, _description, _points, _status, _completetions, _bonusPoints, _instances);
+                AddGoal(goal);
+            }
+
+            else
+            {
+                CreateGoal goal = new CreateGoal(_goalType, _name, _description, _points, _status);
+                AddGoal(goal);
+            }
         }
     }
 }
