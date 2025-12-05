@@ -19,6 +19,7 @@ class GoalManager
 
     public void RecordEvent()
     {
+        Console.Clear();
         Console.WriteLine("Here are your current goals:");
 
         foreach (CreateGoal goal in _goals)
@@ -72,7 +73,7 @@ class GoalManager
         }
     }
 
-    public void LoadGoal()
+    public virtual void LoadGoal()
     {
         string[] loadedGoals = System.IO.File.ReadAllLines(_fileName);
 
@@ -83,6 +84,7 @@ class GoalManager
             string[] parts = line.Split("|");
 
             string _goalType = parts[0];
+            //if (_goalType != "Checklist")
             string _name = parts[1];
             string _description = parts[2];
             int _points = int.Parse(parts[3]);

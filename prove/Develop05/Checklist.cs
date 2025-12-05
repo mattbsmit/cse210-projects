@@ -43,4 +43,9 @@ class CheckList : CreateGoal
         else
             return ($"[ ] {_name} - {_description} - {_points} - {_bonusPoints} --> {_completetions}/{_instances}");
     }
+
+    public override string CompString()
+    {
+        return ($"{_goalType}|{_name}|{_description}|{_points}|{_status}|{_bonusPoints}|{_completetions}|{_instances}");
+    }
 }
