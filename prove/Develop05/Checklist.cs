@@ -10,8 +10,10 @@ class CheckList : CreateGoal
     {
         base.GoalInfo();
 
+        _completetions = 0;
+
         Console.Write("How many times would you like to complete this goal: ");
-        _completetions = int.Parse(Console.ReadLine());
+        _instances = int.Parse(Console.ReadLine());
 
         Console.Write("How many bonus points do you want for finishing the goal: ");
         _bonusPoints = int.Parse(Console.ReadLine());
@@ -19,6 +21,26 @@ class CheckList : CreateGoal
 
     public override int RecordEvent()
     {
-        return _points;
+        _completetions += 1;
+
+        if (_completetions == _instances)
+        {
+            _status = true;
+            return _bonusPoints + _points;
+        }
+
+        else
+        {
+            return _points;
+        }
+            
+    }
+
+    public override string HumanString()
+    {
+        if (_status)
+            return ($"[x] {_name} - {_description} - {_points} - {_bonusPoints} --> {_completetions}/{_instances}");
+        else
+            return ($"[ ] {_name} - {_description} - {_points} - {_bonusPoints} --> {_completetions}/{_instances}");
     }
 }

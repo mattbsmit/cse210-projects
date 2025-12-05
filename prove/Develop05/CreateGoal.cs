@@ -1,12 +1,13 @@
 class CreateGoal
 {
     protected string _goalType;
-    private string _name;
-    private string _description;
+    protected string _name;
+    protected string _description;
     protected int _points;
-    private bool _status;
+    protected bool _status;
     protected int _completetions;
     protected int _bonusPoints;
+    protected int _instances;
 
     private string userInput;
 
@@ -28,6 +29,18 @@ class CreateGoal
         _description = description;
         _points = points;
         _status = status;
+    }
+
+    public CreateGoal(string goalType, string name, string description, int points, bool status, int completetions, int bonusPoints, int instances)
+    {
+        _goalType = goalType;
+        _name = name;
+        _description = description;
+        _points = points;
+        _status = status;
+        _completetions = completetions;
+        _bonusPoints = bonusPoints;
+        _instances = instances;
     }
 
     public virtual void GoalInfo()
