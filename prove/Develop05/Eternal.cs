@@ -5,4 +5,9 @@ class Eternal : CreateGoal
     {
     
     }
+
+    public override int RecordEvent()
+    {
+        return _points;
+    }
 }

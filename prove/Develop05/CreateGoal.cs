@@ -3,8 +3,10 @@ class CreateGoal
     protected string _goalType;
     private string _name;
     private string _description;
-    private int _points;
+    protected int _points;
     private bool _status;
+    protected int _completetions;
+    protected int _bonusPoints;
 
     private string userInput;
 
@@ -13,7 +15,7 @@ class CreateGoal
     {
         
     }
-    
+
     public CreateGoal(string goalType)
     {
         _goalType = goalType;

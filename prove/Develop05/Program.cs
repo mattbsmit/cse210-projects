@@ -34,8 +34,16 @@ class Program
                                 innerDone = true;
                                 break;
                             case 2:
+                                CreateGoal eternalGoal = new Eternal();
+                                eternalGoal.GoalInfo();
+                                manager.AddGoal(eternalGoal);
+                                innerDone = true;
                                 break;
                             case 3:
+                                CreateGoal checklistGoal = new CheckList();
+                                checklistGoal.GoalInfo();
+                                manager.AddGoal(checklistGoal);
+                                innerDone = true;
                                 break;
                             case 4:
                                 innerDone = true;
