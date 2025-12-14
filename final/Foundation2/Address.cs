@@ -4,7 +4,6 @@ class Address
     private string _city;
     private string _state;
     private string _country;
-    public bool _extraShipping;
 
 
     public Address(string street, string city, string state, string country)
@@ -18,17 +17,7 @@ class Address
 
     public bool InUSA()
     {
-        if (_country == "USA")
-        {
-            _extraShipping = false;
-        }
-
-        else
-        {
-            _extraShipping = true;
-        }
-
-        return _extraShipping;
+        return _country == "USA";
     }
 
     public string GetAddress()

@@ -1,12 +1,12 @@
 class Order
 {
     private Customer _customer;
-    private Product _product;
+    private string _product;
     private double _totalCost;
-    private int _shipping;
+    private bool _shipping;
 
 
-    List<Product> order = new List<Product>();
+    List<string> order = new List<string>();
 
 
     public Order(Customer customer)
@@ -15,12 +15,13 @@ class Order
     }
 
 
-    public void AddProduct(Product product)
+    public void AddProduct(string product)
     {
+        _product = product;
         order.Add(_product);
     }
 
-    public bool PackageLabel()
+    public void PackageLabel()
     {
         Console.WriteLine("PACKAGE LABEL:");
 
@@ -29,39 +30,37 @@ class Order
             Console.WriteLine(i);
         }
 
+        ExtraShipping();
+        if (_shipping)
+        {
+            _totalCost += 5;
+        }
 
-        //GetCost();
+        else
+        {
+            _totalCost += 35;
+        }
+
         Console.WriteLine($"Total Cost: ${_totalCost}");
-        return true;
     }
 
-    public bool ShippingLabel()
+    public void ShippingLabel()
     {
         Console.WriteLine("SHIPPING LABEL: ");
 
         Console.WriteLine($"{_customer.GetName()}");
         Console.WriteLine($"{_customer.GetAddress().GetAddress()}");
-        return false;
     }
 
-    private double GetCost()
+    public double AddCost(double cost)
     {
-        _totalCost = 0;
-
-        foreach (var i in order)
-        {
-            _totalCost += i.ProductCost();
-        }
-
-        if (_customer.IsUSA())
-        {
-            _totalCost += _totalCost + 5;
-        }
-        else
-        {
-            _totalCost += _totalCost + 35;
-        }
-
+        _totalCost += cost;
         return _totalCost;
+    }
+
+    private bool ExtraShipping()
+    {
+        _shipping = _customer.IsUSA();
+        return _shipping;
     }
 }

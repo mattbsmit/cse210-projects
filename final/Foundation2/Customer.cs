@@ -4,6 +4,12 @@ class Customer
     private Address _address;
 
 
+
+    public Customer()
+    {
+        
+    }
+
     public Customer(string name, Address address)
     {
         _name = name;
