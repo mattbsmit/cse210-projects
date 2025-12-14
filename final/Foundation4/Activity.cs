@@ -3,10 +3,10 @@ using System.IO.Compression;
 class Activity
 {
     protected string _activity;
-    protected int _distance;
-    protected int _speed;
-    protected int _pace;
-    protected int _duration;
+    protected double _distance;
+    protected double _speed;
+    protected double _pace;
+    protected double _duration;
     protected int _laps;
     protected string _activitySummary;
     private string _date;
@@ -33,7 +33,7 @@ class Activity
 
     public virtual void GetSpeed()
     {
-        _speed = (_distance * _duration) / 60; 
+        _speed = (_distance / _duration) * 60; 
     }
 
     public virtual void GetPace()
@@ -45,7 +45,7 @@ class Activity
     public string ActivitySummary()
     {
         _date = DateTime.Now.ToString("dd MMM yyyy");
-        _activitySummary = ($"{_date} {_activity} ({_duration} min.): Distance {_distance}, Speed {_speed} KPH, Pace {_pace} MPK");
+        _activitySummary = ($"{_date} {_activity} ({_duration} min.): Distance {Math.Round(_distance, 1)} KM, Speed {Math.Round(_speed, 1)} KPH, Pace {Math.Round(_pace, 1)} MPK");
         return _activitySummary;
     }
 

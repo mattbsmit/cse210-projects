@@ -15,9 +15,7 @@ class Cycling : Activity
 
     public override void GetDistance()
     {
-        Console.WriteLine(_pace);
-        Console.WriteLine(_duration);
-        _distance = _pace * _duration;
+        _distance = _duration / _pace;
     }
 
 
